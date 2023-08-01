@@ -59,6 +59,11 @@ python app.py
 http://127.0.0.1:5000/   open url in browser
 ```
 
+#### FOR API KEY access
+
+Visit https://apilist.fun/api/jooble
+
+Read docs for key access.
 
 
 
