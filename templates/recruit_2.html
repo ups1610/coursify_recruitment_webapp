@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recruit.css') }}">
+    <title>Coursify Recurite</title>
+</head>
+<body class="bg-color">
+    
+    <div class="row">
+        <div class="col d-inline-flex flex-column p-5">
+            <a class="text-decoration-none text-color fs-1 p-4 px-5" href="{{url_for('home')}}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="" width="50" height="50" class="img-hover-zoom"> Coursify</a>
+
+            <div class="mt-5 p-4 px-5">
+                <p style="color: #b60af9">Step 2 of 2</p>
+            </div>
+            <div class="px-5" style="color: #35084c; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                <h1>What are you hiring for?</h1>
+                <p>You're more likely to get results if you complete each section.<br>Set your URL and provide more details here.</p>
+            </div>
+        </div>
+        <div class="col mt-5">
+            <form action="{{url_for('recruit_details_2')}}" method="POST" class="bg-light rounded p-3">
+                  <div class="form-floatig">
+                    <label for="confirm_email" class="px-1 py-2">Confirm Email</label>
+                    <input type="email" class="form-control height-set" id="confirm_email" placeholder="Confirm Your mail" name="confirm_email">
+
+                    <label for="role" class="px-1 py-2">What role are you trying to fill?</label>
+                    <input type="text" class="form-control height-set" id="role" placeholder="Role" name="role">
+
+                    <label for="area" class="px-1 py-2">What are the pay and benefits? (optional) 0/200</label>
+                    <textarea class="form-control" placeholder="Provide a range and some reasons why someone should work here" id="area" style="height: 100px" name="area"></textarea>
+                  
+
+                    <label for="instagram" class="px-1 py-2">Your Instagram URL</label>
+                    <input type="url" class="form-control height-set" id="instagram" placeholder="https://instagram.com/coursify" name="instagram">
+  
+                    <label for="linkedin" class="px-1 py-2">Your Linkedin URL</label>
+                    <input type="url" class="form-control height-set mb-2" id="linkedin" placeholder="https://linkedin.com/coursify" name="linkedin">
+
+                    <input class="form-check-input" type="checkbox" value="yes" id="check" name="check" required>
+                    <label class="form-check-label" for="check">
+                        You agree to our Terms and Privacy Policy.
+                    </label>
+                  
+                  <p class="text-center mt-2">Now, we'll take you to your new dashboard.</p>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-danger">Done</button>
+                  </div>  
+            </form>
+        </div>
+    </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

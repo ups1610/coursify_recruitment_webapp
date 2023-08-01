@@ -1,0 +1,21 @@
+.m-set{
+    padding-left: 10rem;
+}
+
+.img-hover-zoom{
+    transition: transform .2s;
+}
+
+.img-hover-zoom:hover{
+    transform: scale(1.5);
+}
+
+.text-color{
+    color: black;
+    transition: text-shadow 0.3s ease;
+}
+
+.text-color:hover{
+    text-shadow: 0.5px 0.5px rgb(248, 159, 159);
+    color: rgb(29, 29, 39);
+}

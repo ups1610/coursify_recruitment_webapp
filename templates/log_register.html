@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/log_register.css') }}">
+    <script src="https://kit.fontawesome.com/9c1e9677d7.js" crossorigin="anonymous"></script>
+    <title>Coursify Recurite</title>
+</head>
+<body class="bg-black">
+    {% for message in get_flashed_messages()%}
+       {% if message == "Invalid username and password" %}
+       <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+       {% endif %}
+       {% if message == "Registered Successfully Go to Login!" %}
+       <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+        {% endif %}
+       {% if message == "User already exist" %}
+       <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+         {% endif %}
+        {% endfor %}
+    <section id="lg-account">
+        <div class="lg-container bg-dark">
+            <div class="lg-row m-auto">
+                <div class="lg-col-2 m-auto">
+                    <img src="{{ url_for('static', filename='images/banner.jpg') }}" alt="" >
+                </div>
+                <div class="lg-col-2">
+                    <div class="lg-form-container">
+                          <div class="lg-form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Register</span>
+                            <hr id="lg-indicator">
+                          </div>
+
+                          <form  action="{{url_for('login')}}" method="POST" id="login-form">
+                            <input type="text" placeholder="Username" name="name" required>
+                            <input type="password" placeholder="Password" name="password" required>
+                            <button type="submit" class="lg-btn">Login</button>
+                            <a href="">Forgot password</a>
+                          </form>
+
+                          <form action="{{url_for('register')}}" method="POST" id="register-form">
+                            <input type="text" placeholder="Username" name="name" required>
+                            <input type="email" placeholder="Email" name="email" required>
+                            <input type="password" placeholder="Password" name="password" required>
+                            <button type="submit" class="lg-btn">Register</button>
+                          </form>
+                    </div>
+                </div>
+            </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    
+        var loginform = document.getElementById("login-form");
+        var regform = document.getElementById("register-form");
+        var indicator = document.getElementById("lg-indicator");
+        
+        function register(){
+            regform.style.transform = "translateX(0px)";
+            loginform.style.transform = "translateX(0px)";
+            indicator.style.transform = "translateX(100px)";
+        }
+        
+        function login(){
+            regform.style.transform = "translateX(300px)";
+            loginform.style.transform = "translateX(300px)";
+            indicator.style.transform = "translateX(0px)";
+        }
+    </script>
+</body>
+</html>    

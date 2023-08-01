@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/choice.css') }}">
+    <title>Coursify Recurite</title>
+</head>
+<body class="bg-color">
+
+    <div class="text-center m-auto">
+        <a class="text-decoration-none text-color fs-1" href="{{url_for('home')}}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="" width="60" height="60" class="img-hover-zoom"> Coursify</a>
+        <h4 class="mt-2">Jobs Recommeded For You...</h4>
+    </div>
+    {% for jobs in data %}
+    <div class="alert alert-info m-4" role="alert">
+        <div class="card bg-dark">
+            <h5 class="card-header bg-light">{{jobs['title']}}</h5>
+            <div class="card-body text-white">
+                <div class="d-flex">
+                    <h4>Company : {{jobs['company']}}</h4>
+                    <h4 class="px-5 text-warning">{{jobs['type']}}</h4>
+                </div>
+                
+              <h5 class="card-title">{{jobs['country']}}</h5>
+              <p class="card-text">{{jobs['snippet']|safe}}</p>
+
+              <h4><span class="text-success">Posted on</span> : {{jobs['updated'].split(':')[0][0:-3]}}</h4>
+              
+              <a href="{{jobs['link']}}" class="btn btn-danger">Apply Now</a>
+            </div>
+          </div>
+      </div>
+    {% endfor %}
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
