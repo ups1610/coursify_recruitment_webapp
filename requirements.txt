@@ -1,3 +1,5 @@
 flask
 flask authlib requests
+gunicorn
+
 -e .
