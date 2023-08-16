@@ -8,8 +8,8 @@ import json
 app = Flask(__name__)
 
 appConf = {
-    "OAUTH2_CLIENT_ID": "YOUR CLIENT ID",
-    "OAUTH2_CLIENT_SECRET": "YOUR CLIENT SECRET",
+    "OAUTH2_CLIENT_ID": "1091863552542-mq0o7tbudca2561bcegr0fuj88pjcf9t.apps.googleusercontent.com",
+    "OAUTH2_CLIENT_SECRET": "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",
     "OAUTH2_META_URL": "https://accounts.google.com/.well-known/openid-configuration",
     "FLASK_SECRET": "ALongRandomlyGeneratedString",
     "FLASK_PORT": 5000
@@ -133,7 +133,7 @@ def student_details():
     try:
         # api calling and recommendation
         host = 'jooble.org'
-        key = 'YOUR API KEY'
+        key = '75c44581-ff5e-4237-8433-51045637a730'
 
         connection = http.client.HTTPConnection(host)
         headers = {"Content-type": "application/json"}
